@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Expr\PostDec;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,3 +38,10 @@ Route::get('/novost/{id}', function($id){
 
     return view('novost', $novost);
 });
+
+Route::get('/test', function(Request $request){
+    // dd($request);
+    return $request->ime;
+});
+
+Route::resource('/predmeti', CourseController::class);

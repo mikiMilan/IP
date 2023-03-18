@@ -4,16 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title', 'Pocetna')</title>
+        @include('inc.links')
 
     </head>
     <body>
-        <h1>Fakultet</h1>
-        <a href="/">O nama</a>
-        <a href="/novosti">Novosti</a>
-        <a href="/predmeti">Premeti</a>
-        <a href="/kontakt">Kontakt</a>
-
+        @include('inc.meni')
         @yield('sadrzaj')
-
+        @include('inc.scripts')
     </body>
 </html>

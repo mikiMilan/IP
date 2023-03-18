@@ -45,3 +45,4 @@ Route::get('/test', function(Request $request){
 });
 
 Route::resource('/predmeti', CourseController::class);
+// Route::get('/predmeti', [CourseController::class, 'index']);

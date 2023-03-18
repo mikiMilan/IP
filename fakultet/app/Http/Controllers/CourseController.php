@@ -13,7 +13,7 @@ class CourseController extends Controller
     public function index()
     {
         $predmeti = Course::all();
-        return view('predmeti', ['naziv'=>'Predmeti', 'predmeti'=>$predmeti]);
+        return view('predmeti.index', ['naziv'=>'Predmeti', 'predmeti'=>$predmeti]);
     }
 
     /**
@@ -21,7 +21,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('predmeti.create');
     }
 
     /**
@@ -29,7 +29,10 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Course::create($request->all());
+
+        return redirect('/');
     }
 
     /**

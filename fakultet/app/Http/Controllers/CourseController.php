@@ -29,10 +29,16 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        $dataFrame = $request->validate([
+            'naziv'=>'required|min:3',
+            'opis'=>'min:10',
+            'status'=>'required|in:o,i',
+            'ects'=>'numeric'
+        ]);
 
-        Course::create($request->all());
+        Course::create($dataFrame);
 
-        return redirect('/');
+        return redirect('/predmeti')->with('message', "Uspjesno ste kreirali kurs.");
     }
 
     /**
@@ -50,7 +56,8 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $predmet = Course::where('id', $id)->get();
+        return view('predmeti.edit', ['naziv'=>$predmet[0]['naziv'],'predmet'=>$predmet[0]]);
     }
 
     /**
@@ -58,7 +65,18 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $dataFrame = $request->validate([
+            'naziv'=>'required|min:3',
+            'opis'=>'min:10',
+            'status'=>'required|in:o,i',
+            'ects'=>'numeric'
+        ]);
+
+        $predmet = Course::where('id', $id)->get()[0];
+        $predmet->update($dataFrame);
+
+        return redirect('/predmeti')->with('message', "Uspje[no je iymjenjen predmet");
+
     }
 
     /**

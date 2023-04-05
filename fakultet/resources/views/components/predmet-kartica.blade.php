@@ -8,7 +8,7 @@
         <div class="card-footer bg-transparent py-4 px-5">
             <div class="row border-bottom">
                 <div class="col-6 py-1 text-right border-right"><strong>ECTS</strong></div>
-                <div class="col-6 py-1">{{$prom['naziv']}}</div>
+                <div class="col-6 py-1">{{$prom['ects']}}</div>
             </div>
             <div class="row border-bottom">
                 <div class="col-6 py-1 text-right border-right"><strong>Status</strong></div>

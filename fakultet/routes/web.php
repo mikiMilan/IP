@@ -45,6 +45,8 @@ Route::get('/test', function(Request $request){
     return $request->ime;
 });
 
+// Route::get('/predmeti', [CourseController::class, 'index']);
+// Route::get('/predmeti/create', [CourseController::class, 'create'])->middleware('auth');
 
 
 Route::resource('/predmeti', CourseController::class, ['except'=>['index']])->middleware('auth');

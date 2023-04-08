@@ -4,7 +4,6 @@
 
 @section('sadrzaj')
 
-<x-message />
 
 <!-- Header Start -->
 <div class="container-fluid bg-primary mb-5">

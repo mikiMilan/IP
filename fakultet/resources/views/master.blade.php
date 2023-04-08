@@ -8,6 +8,7 @@
 
     </head>
     <body>
+        <x-message />
         @include('inc.meni')
         @yield('sadrzaj')
         @include('inc.scripts')

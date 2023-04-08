@@ -22,5 +22,11 @@
             </div>
         </div>
         <a href="/predmeti/{{$prom->id}}" class="btn btn-primary px-4 mx-auto mb-4">Upiši</a>
+
+        <form action="/predmeti/{{$prom->id}}" method="post">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-destroy px-4 mb-4">Obrisite</button>
+        </form>
     </div>
 </div>

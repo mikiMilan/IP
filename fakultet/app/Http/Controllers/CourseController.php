@@ -75,8 +75,7 @@ class CourseController extends Controller
         $predmet = Course::where('id', $id)->get()[0];
         $predmet->update($dataFrame);
 
-        return redirect('/predmeti')->with('message', "Uspje[no je iymjenjen predmet");
-
+        return back()->with('message', "Uspješno je izmjenjen predmet");
     }
 
     /**
@@ -84,6 +83,10 @@ class CourseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $predmet = Course::where('id', $id)->first();
+        $name = $predmet->naziv;
+        $predmet->delete();
+
+        return redirect("/predmeti")->with('message', "Kurs ".$name." je obbrisan");
     }
 }

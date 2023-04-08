@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,5 +45,14 @@ Route::get('/test', function(Request $request){
     return $request->ime;
 });
 
-Route::resource('/predmeti', CourseController::class);
-// Route::get('/predmeti', [CourseController::class, 'index']);
+
+
+Route::resource('/predmeti', CourseController::class, ['except'=>['index']])->middleware('auth');
+Route::get('/predmeti', [CourseController::class, 'index']);
+
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
+Route::post('/register', [UserController::class, 'store'])->middleware('guest');
+Route::post('/logout', [UserController::class, 'logout']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/authentX', [UserController::class, 'authent']);
+

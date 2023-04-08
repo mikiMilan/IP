@@ -22,7 +22,18 @@
                 </div>
                 <a href="/kontakt" class="nav-item nav-link">Kontakt</a>
             </div>
-            <a href="" class="btn btn-primary px-4">Join Class</a>
+            @auth
+                welcome {{auth()->user()->name}}
+
+                <form action="/logout" method="post">
+                    @csrf
+                    <button>Odjava</button>
+                </form>
+            @else
+            <a href="/register" class="btn btn-primary px-4">Registracija</a>
+            <a href="/login" class="btn btn-primary px-4">Prijava</a>
+            @endauth
+            
         </div>
     </nav>
 </div>

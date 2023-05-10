@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PhoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/role_users', [RoleController::class, 'index']);
+Route::get('/user/{id}/phone1', [UserController::class, 'user_phone1']);
+Route::get('/user/{id}/phone2', [UserController::class, 'user_phone2']);
+Route::get('/user/{id}/roles', [UserController::class, 'user_roles']);
+Route::get('/user/{id}/posts', [UserController::class, 'user_posts']);
+
+Route::get('/role/{id}', [RoleController::class, 'index']);
+
+Route::get('/phone/{id}', [PhoneController::class, 'index']);
+

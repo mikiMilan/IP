@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -45,6 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Izdvojiti 
     public function phone(): BelongsTo
     {
         return $this->belongsTo(Phone::class);
@@ -59,4 +61,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+
 }
